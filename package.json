@@ -1,0 +1,26 @@
+{
+  "name": "backendsmtp",
+  "version": "1.0.0",
+  "description": "Backend para el proyecto de Protocolos sobre el protocolo SMTP.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "SMTP",
+    "Protocolos",
+    "backend",
+    "mails",
+    "ayuda"
+  ],
+  "author": "Idiar Chacin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.4",
+    "smtp-server": "^3.13.6",
+    "zod": "^3.23.8"
+  }
+}
