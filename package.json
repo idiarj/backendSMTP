@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Backend para el proyecto de Protocolos sobre el protocolo SMTP.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "node --watch app/app.js"
   },
   "keywords": [
     "SMTP",
@@ -16,6 +18,7 @@
   "author": "Idiar Chacin",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.11.0",
