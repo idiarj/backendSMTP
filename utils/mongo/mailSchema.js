@@ -1,4 +1,4 @@
-import mongoose, { SchemaType } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { MONGO_CONNECTION } from "./connection.js";
 
 const mailSchema = new mongoose.Schema({

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const URI = process.env.MONGO_URI || "mongodb://localhost:27017/smtp";
+const URI = process.env.MONGO_URI || "mongodb+srv://Idiarj:16012004id@cluster0.pbqjb.mongodb.net/smtp?retryWrites=true&w=majority";
 
 console.log(URI)
 export const createConnection = async () =>{
