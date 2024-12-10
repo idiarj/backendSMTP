@@ -62,7 +62,7 @@ app.post('/login', async (req, res) => {
         console.log(req.body)
         const user = await User.findOne({email, password});
         const users = await User.find();
-        console.log(users)
+        //console.log(users)
         console.log(user)
         if(user){
             req.session.userId = user._id;
@@ -80,10 +80,13 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.post('/send', async (req, res) => {
+app.post('mail/sendMail', async (req, res) => {
     try {
-        const { author, to, subject, content, attachaments } = req.body;
-        const mail = new Mail({ author, to, subject, content, attachaments });
+        const { to, subject, content, attachaments } = req.body;
+        const { userId } = req.user;
+        console.log(req.body)
+        console.log(req.user)
+        const mail = new Mail({ author: userId, to, subject, content, attachaments });
         await mail.save();
         res.status(200).json({
             success: true,
@@ -115,6 +118,27 @@ app.get('/mails/sent', async (req, res) => {
             success: true,
             mail,
       })
+    } catch (error) {
+        console.error(error);
+    }
+})
+
+app.post('/logout', async (req, res) => {
+    try {
+        const {userId} = req.user;
+        console.log(userId)
+        if(userId){
+            console.log('entro')
+            req.session.destroy();
+            res.status(200).json({
+                success: true,
+                message: "User logged out successfully",
+            })
+        }
+        res.status(401).json({
+            success: false,
+            message: "No user logged in",
+        })
     } catch (error) {
         console.error(error);
     }
